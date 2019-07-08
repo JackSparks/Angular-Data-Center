@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 interface Metric{
   used: number,
@@ -35,7 +35,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
     clearInterval(this.interval);
   }
 
+  //used in the alert
+  @Output() onRefresh: EventEmitter<Date> = new EventEmitter<Date>();
+
   generateData(): void{
+
+    //used in the alert
+    this.onRefresh.emit(new Date());
+
     this.cluster1 = [];
     this.cluster2 = [];
     this.cpu = { used: 0, available: 0 };

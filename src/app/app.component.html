@@ -1,2 +1,13 @@
-<app-navbar></app-navbar>
-<app-dashboard></app-dashboard>
+<!-- notifies components of changes -->
+<!-- <app-navbar (onRefresh)="dashboard.generateData()"></app-navbar>
+<app-dashboard #dashboard></app-dashboard> -->
+
+<!-- approach using the @viewchild to detect changes -->
+<app-navbar (onRefresh)="refresh()"></app-navbar>
+<!-- <app-dashboard ></app-dashboard> -->
+<ng-template #alertBox></ng-template>
+<app-dashboard (onRefresh)="alert($event)"></app-dashboard>
+
+<!-- <app-navbar (onRefresh)="refresh()"></app-navbar> -->
+
+<!-- <app-dashboard></app-dashboard> -->

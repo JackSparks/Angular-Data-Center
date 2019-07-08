@@ -1,6 +1,19 @@
+<!-- Not that the style .btn gets overrided by the inline style. In order of priority, its inline, then the style tag on the html file, then in the component.ts file whichever css was declared last 
+The priority rule is this:
+
+1. inline style attribute rules
+2: inline style block rules in the template
+3. component styles rules or styleUrls rules (if both, then last declared has priority)
+4. Global css rules (in this case, the bootstrap rules)
+-->
+
+<style>.btn{background-color: #3274b8;}</style>
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand mr-auto" href="#">My Data Center</a>
   <form class="form-inline">
-    <button class="btn btn-success" type="button">Reload</button>
+    <!-- <button class="btn btn-success" type="button">Reload</button> -->
+    
+    <!-- <button class="btn btn-success" type="button" (click)="refresh()">Reload</button> -->
+    <button class="btn btn-success" type="button" style="background-color: #8616f6" (click)="refresh()">Reload</button>
   </form>
 </nav>
